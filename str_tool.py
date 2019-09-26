@@ -3,10 +3,11 @@
 import re
 
 
-def json_hump2underline(hump_json_str, ptn = r'"\s*(\w+)\s*"\s*:'):
+def json_hump2underline(hump_json_str, ptn=r'"\s*(\w+)\s*"\s*:'):
     """
     将命名为驼峰格式的转为下划线
     :param hump_json_str:
+    :param ptn 正则pattern
     :return:
     """
     attr_ptn = re.compile(ptn)
