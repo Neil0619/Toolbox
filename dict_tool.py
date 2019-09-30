@@ -51,3 +51,22 @@ class ObjectDict(_ObjectDictBase):
 
     def __setattr__(self, name, value):
         self[name] = value
+
+
+def objectdictify(result):
+    """将结果 ObjectDict 化"""
+    ret = result
+
+    if isinstance(result, list):
+        ret = []
+        for e in result:
+            if isinstance(e, dict):
+                ret.append(ObjectDict(e))
+            else:
+                ret.append(e)
+    elif isinstance(result, dict):
+        ret = ObjectDict(result)
+
+    else: pass
+
+    return ret
